@@ -6,8 +6,8 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import { Users } from './collections/Users'
-import { Media } from './collections/Media'
+import { Users } from './collections/Users.js'
+import { Media } from './collections/Media.js'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,6 +17,13 @@ export default buildConfig({
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
+    },
+    components: {
+      afterDashboard: [
+        {
+          path: '@/components/Button.js',
+        },
+      ],
     },
   },
   jobs: {
@@ -42,7 +49,12 @@ export default buildConfig({
         },
       },
     ],
-    workflows: [],
+    workflows: [
+      {
+        slug: 'test',
+        handler: async ({ req }) => {},
+      },
+    ],
   },
   collections: [
     Users,

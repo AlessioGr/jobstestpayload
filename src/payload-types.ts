@@ -35,7 +35,11 @@ export interface Config {
         input: TaskcreatePostInput;
       };
     };
-    workflows?: unknown;
+    workflows?: {
+      test?: {
+        input: unknown;
+      };
+    };
   };
 }
 export interface UserAuthOperations {
@@ -174,7 +178,7 @@ export interface PayloadJob {
         id?: string | null;
       }[]
     | null;
-  workflowSlug?: string | null;
+  workflowSlug?: 'test' | null;
   taskSlug?: ('inline' | 'createPost') | null;
   queue?: 'default' | null;
   waitUntil?: string | null;

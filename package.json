@@ -15,7 +15,7 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "3.0.0-canary.96477cf",
+    "@payloadcms/db-postgres": "3.0.0-canary.96477cf",
     "@payloadcms/next": "3.0.0-canary.96477cf",
     "@payloadcms/plugin-cloud": "3.0.0-canary.96477cf",
     "@payloadcms/richtext-lexical": "3.0.0-canary.96477cf",

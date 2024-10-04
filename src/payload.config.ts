@@ -2,7 +2,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import { buildConfig } from 'payload'
+import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
@@ -23,6 +23,17 @@ export default buildConfig({
     },
   },
   jobs: {
+    access: {
+      run: ({ req }: { req: PayloadRequest }): boolean => {
+        // Vercel cron auth
+        const authHeader = req.headers.get('authorization')
+        if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+          return false
+        }
+
+        return true
+      },
+    },
     tasks: [
       {
         slug: 'createPost',

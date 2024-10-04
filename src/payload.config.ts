@@ -19,11 +19,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     components: {
-      afterDashboard: [
-        {
-          path: '@/components/Button.js',
-        },
-      ],
+      afterDashboard: ['@/components/Button.js'],
     },
   },
   jobs: {

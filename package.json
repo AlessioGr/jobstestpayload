@@ -15,16 +15,17 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "beta",
-    "@payloadcms/next": "beta",
-    "@payloadcms/plugin-cloud": "beta",
-    "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/db-mongodb": "3.0.0-canary.96477cf",
+    "@payloadcms/next": "3.0.0-canary.96477cf",
+    "@payloadcms/plugin-cloud": "3.0.0-canary.96477cf",
+    "@payloadcms/richtext-lexical": "3.0.0-canary.96477cf",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
-    "next": "15.0.0-canary.160",
-    "payload": "beta",
-    "react": "19.0.0-rc-5dcb0097-20240918",
-    "react-dom": "19.0.0-rc-5dcb0097-20240918",
+    "next": "15.0.0-canary.173",
+    "payload": "3.0.0-canary.96477cf",
+    "prettier": "^3.3.3",
+    "react": "19.0.0-rc-3edc000d-20240926",
+    "react-dom": "19.0.0-rc-3edc000d-20240926",
     "sharp": "0.32.6"
   },
   "devDependencies": {

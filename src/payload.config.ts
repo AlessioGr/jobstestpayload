@@ -19,7 +19,45 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  jobs: {
+    tasks: [
+      {
+        slug: 'createPost',
+        inputSchema: [
+          {
+            name: 'title',
+            type: 'text',
+          },
+        ],
+        handler: async ({ input, req }) => {
+          await req.payload.create({
+            collection: 'post',
+            data: {
+              title: input.title,
+            },
+          })
+          return {
+            output: {},
+          }
+        },
+      },
+    ],
+    workflows: [],
+  },
+  collections: [
+    Users,
+    Media,
+    {
+      slug: 'post',
+      fields: [
+        {
+          name: 'title',
+          label: 'Title',
+          type: 'text',
+        },
+      ],
+    },
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
